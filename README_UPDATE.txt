@@ -21,13 +21,7 @@
 
 
 #Varcal
-python3 /home/jeancharles/bioinf/umi_varcal2/umi-varcal.py call -i ${pathsample}/${samplename}_sorted.bam -b $t0 \
+python3 umi-varcal.py call -i ${pathsample}/${samplename}_sorted.bam -b $t0 \
 -f $reffile -o ${pathsample}/out -c 24 --keep_pileup False --min_variant_umi 5 --min_mapping_quality 30  \
 --min_base_quality 20  --min_read_quality 30 
 
-#You can assemble the files with a little script like
-	assemble_vcf_files.py
-
-#and sort with 
-	grep '^#' original_vcf_file  > ${pathout}/${samplename}.outsorted.vcf
-	cat $f  | sort -u -k1,1V -k2,2n >> ${pathout}/${samplename}.outsorted.vcf
